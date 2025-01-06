@@ -285,7 +285,7 @@ const getHighScores = function() {
 const addHighScore = function(scoreObj) {
     let highScores = getHighScores() || [];
     let position = highScores.findIndex((element) => {return scoreObj.score > element.score});
-    highScores.splice(position, 0, scoreObj);
+    position === -1 ? highScores.push(scoreObj) : highScores.splice(position, 0, scoreObj);
     (highScores.length > 6) ? highScores.pop() : true;
     const hsJSON = JSON.stringify(highScores);
     localStorage.setItem('high_scores', hsJSON);
