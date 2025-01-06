@@ -321,11 +321,19 @@ const startGame = function() {
     ship.place();
     makeAsteroids('asteroid-large', 5);
 
-    //timing function here
-
+    let asteroidInterval = setInterval(() => {
+        if (asteroidCount < 100) { 
+            //console.log('make 2 more!');
+            makeAsteroids('asteroid-large', 2);
+        } else { 
+            clearInterval(asteroidInterval);
+        }
+        }, 20000);
 };
 
-showHighScores();
+if (getHighScores()) {
+    showHighScores();
+};
 
 const ship = new MovingBody('ship', shipEl, xMid, yMid);
 const bullet = new MovingBody('bullet', bulletEl, xMid, yMid);
