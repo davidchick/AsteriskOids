@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>AsteriskOids</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+
+    <body>
+        <div id="title">
+            <h1>AsteriskOids!</h1>
+            <h2>Press arrow keys to steer, spacebar to shoot.</h2>
+        </div>
+        
+        <div id="stats">
+            <h2 id="score">score: 0</h3>
+            <h2 id="ships">ships: ^^^</h3>
+            <h2 id ="other"></h3>
+        </div>
+
+        <div>
+            <div tabindex="1" class="ship" id="ship">^</div>
+            <div tabindex="2" class="bullet" id="bullet">*</div>
+        </div>
+
+        <div id="enter-score">
+            <form>
+                New High Score! Enter your initials:
+                <input id="initials" type="text" size="4" maxlength="3">
+                <input type="enter" name="save"> 
+            </form>
+        </div>
+
+        <div id="highscores">
+
+
+        </div>
+
+        <script src="Animate.js"></script>
+    </body>

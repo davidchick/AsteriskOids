@@ -1,0 +1,60 @@
+
+body {
+    overflow: hidden;
+}
+
+div {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: top;
+    color: darkgreen;
+}
+
+.ship {
+    position: absolute; 
+    transition: rotate .25s;
+    font-size: xx-large;
+    width: 18px;
+    height: 18px;
+    line-height: 28px;
+}
+
+.bullet {
+    position: absolute; 
+    font-size: large;
+    width: 12px;
+    height: 12px;
+    line-height: 18px;
+}
+
+.hidden {
+    display: none;
+}
+
+.asteroid-large {
+    position: absolute; 
+    transition: rotate 1s;
+    font-size: 128px;
+    width: 100px;
+    height: 100px;
+    line-height: 98px;
+}
+
+.asteroid-med {
+    position: absolute; 
+    transition: rotate 1s;
+    font-size: 64px;
+    width: 50px;
+    height: 50px;
+    line-height: 48px;
+}
+
+.asteroid-small {
+    position: absolute; 
+    transition: rotate 1s;
+    font-size: 32px;
+    width: 20px;
+    height: 20px;
+    line-height: 18px;
+}
