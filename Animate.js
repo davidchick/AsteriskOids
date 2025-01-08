@@ -1,6 +1,7 @@
 const body = document.getElementsByTagName('body')[0];
 const shipEl = document.getElementById('ship');
 const bulletEl = document.getElementById('bullet');
+const alienEl = document.getElementById('alien');
 const titleDiv = document.getElementById('title');
 const scoreEl = document.getElementById('score');
 const shipsEl = document.getElementById('ships');
@@ -10,6 +11,7 @@ const highScoresEl = document.getElementById('highscores');
 
 bulletEl.classList.add('hidden');
 shipEl.classList.add('hidden');
+alienEl.classList.add('hidden');
 enterScore.classList.add('hidden');
 
 let rightSide = window.innerWidth;
@@ -226,6 +228,12 @@ const makeAsteroids = function(type='asteroid-large', count=1, xpos, ypos) {
 };
 
 
+const alienShip = function() {
+
+
+};
+
+
 const asteroidCollision = function(obj) {
     for (let key of Object.keys(asteroids)) {
         let hitZone = asteroids[key].element.offsetWidth;
@@ -245,14 +253,11 @@ const asteroidCollision = function(obj) {
             } else if (asteroids[key].type === 'asteroid-med') {
                 makeAsteroids('asteroid-small', 2, asteroids[key].xPos, asteroids[key].yPos);
                 score += 1000;
-            } else {
+            } else if (asteroids[key].type === 'asteroid-small') {
                 score += 3000;
             }
-
             scoreEl.innerText = `score: ${score}`;
-
             delete asteroids[key];
-            
             return true;
         }
     }
@@ -322,14 +327,36 @@ const startGame = function() {
     makeAsteroids('asteroid-large', 5);
 
     let asteroidInterval = setInterval(() => {
-        if (asteroidCount < 100) { 
-            //console.log('make 2 more!');
+        if (asteroidCount < 500) { 
             makeAsteroids('asteroid-large', 2);
         } else { 
             clearInterval(asteroidInterval);
         }
         }, 20000);
+
+    let alienInterval = setInterval(() => {
+
+
+    }, 100000);
 };
+
+// let timer = 0;
+
+// let timeInterval = setInterval(() => {
+//     if (timer < 10000) {
+//         timer++;
+//     } else { 
+//         clearInterval(timeInterval);
+//     }
+
+// }, 10);
+
+// window.addEventListener('keydown', () => {
+//     console.log(timer);
+//     timer = 0;
+//     console.log(timer);
+
+// });
 
 if (getHighScores()) {
     showHighScores();
