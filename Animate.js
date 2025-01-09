@@ -28,7 +28,8 @@ const asteroids = {};
 let asteroidCount = 0;
 
 class MovingBody {
-    constructor (type, element, xpos=0, ypos=0) {
+    constructor(type, element, xpos=0, ypos=0) {
+    this.type = type;
     this.element = element;  
     this.xPos = xpos;
     this.yPos = ypos;
@@ -39,7 +40,6 @@ class MovingBody {
     this.rotation = 0;
     this.rotFactor = 15;
     this.rotMultiplier = 1;
-    this.type = type;
     };
     calcMove() {
         let myRadians = this.rotation * (Math.PI / 180);
@@ -235,10 +235,12 @@ const alienShip = function() {
 
 
 const asteroidCollision = function(obj) {
+    const objXCenter = obj.xPos + Math.round(obj.element.offsetWidth / 2);
+    const objYCenter = obj.yPos + Math.round(obj.element.offsetHeight / 2);
     for (let key of Object.keys(asteroids)) {
         let hitZone = asteroids[key].element.offsetWidth;
-        if ((obj.xPos > (asteroids[key].xPos + Math.round(hitZone * .25))) && (obj.xPos < (asteroids[key].xPos + Math.round(hitZone * .75))) &&
-            (obj.yPos > (asteroids[key].yPos + Math.round(hitZone * .25))) && (obj.yPos < (asteroids[key].yPos + Math.round(hitZone * .75)))) {
+        if ((objXCenter > (asteroids[key].xPos + Math.round(hitZone * .25))) && (objXCenter < (asteroids[key].xPos + Math.round(hitZone * .75))) &&
+            (objYCenter > (asteroids[key].yPos + Math.round(hitZone * .25))) && (objYCenter < (asteroids[key].yPos + Math.round(hitZone * .75)))) {
 
             asteroids[key].element.remove();
 
