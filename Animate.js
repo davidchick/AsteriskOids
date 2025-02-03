@@ -79,6 +79,11 @@ const keyDown = function(event) {
     (gameIsStarted) ? true : startGame();
 };
 
+const touchStart = function(event) {
+    (gameIsStarted) ? true : startGame();
+
+}
+
 
 const keyUp = function(event) {
     counter = 0;
@@ -369,3 +374,5 @@ const bullet = new MovingBody('bullet', bulletEl, xMid, yMid);
 
 window.addEventListener('keydown', keyDown); 
 window.addEventListener('keyup', keyUp);
+
+window.addEventListener('touchstart', touchStart);
